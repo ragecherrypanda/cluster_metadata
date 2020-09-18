@@ -93,7 +93,7 @@
 -spec start_link() -> {ok, pid()} | ignore | {error, term()}.
 start_link() ->
     MemberFun = application:get_env(cluster_metadata, member_fun, 
-                                    fun cluster_metadata_nodes:nodes/0),
+                                    fun cluster_metadata_nodes:up_nodes/0),
     MemberUpdateFun = application:get_env(cluster_metadata, member_update_fun, 
                                           fun cluster_metadata_nodes:callback/1),
     Members = MemberFun(),
